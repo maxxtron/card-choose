@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useId, useState } from 'react';
 import styled from 'styled-components';
 import Container from '../components/container/Container';
 import Card from '../components/card/Card';
@@ -21,6 +21,7 @@ const MainPageStyled = styled.div`
 
 const MainPage = () => {
 	const dispatch = useDispatch();
+	const id = useId();
 
 	const [info, setInfo] = useState([]);
 	const [show, setShow] = useState(false);
@@ -61,8 +62,8 @@ const MainPage = () => {
 								<Card
 									setShow={setShow}
 									items={items}
-									key={i + Math.random()}
-									id={i + 1}
+									key={id}
+									id={id}
 								/>
 							);
 						})}
